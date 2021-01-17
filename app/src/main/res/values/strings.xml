@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">Week6Assignment1</string>
+    <string name="title_activity_home">MainActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="add_student">Add Student</string>
+    <string name="about_us">About Us</string>
+</resources>
