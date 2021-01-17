@@ -14,6 +14,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import com.google.android.material.snackbar.Snackbar
 import com.ujjallamichhane.week6assignment1.R
+import com.ujjallamichhane.week6assignment1.ui.home.HomeViewModel
 
 
 class AboutUsFragment : Fragment() {
@@ -25,6 +26,9 @@ class AboutUsFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        notificationsViewModel =
+                ViewModelProvider(this).get(AboutUsViewModel::class.java)
+
         val root = inflater.inflate(R.layout.fragment_about_us, container, false)
 
         val webView: WebView = root.findViewById(R.id.webView)

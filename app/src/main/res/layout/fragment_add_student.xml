@@ -109,12 +109,13 @@
             android:maxLines="1" />
     </com.google.android.material.textfield.TextInputLayout>
 
-    <Button
+    <android.widget.Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
         android:background="@drawable/round_button"
         android:text="Save"
+        android:textColor="@color/white"
         android:textSize="18sp" />
 </LinearLayout>

@@ -16,6 +16,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.ujjallamichhane.week6assignment1.HomeActivity
 import com.ujjallamichhane.week6assignment1.R
 import com.ujjallamichhane.week6assignment1.model.Student
+import com.ujjallamichhane.week6assignment1.ui.home.HomeViewModel
 
 
 class AddStudentFragment : Fragment() {
@@ -40,6 +41,9 @@ class AddStudentFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        dashboardViewModel =
+                ViewModelProvider(this).get(AddStudentViewModel::class.java)
+
         val root = inflater.inflate(R.layout.fragment_add_student, container, false)
         etFullname = root.findViewById(R.id.etFullname)
         etAge = root.findViewById(R.id.etAge)
@@ -53,6 +57,7 @@ class AddStudentFragment : Fragment() {
 
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
             lstUser = (activity as HomeActivity).lstUser
+
             radioGroupGender.setOnCheckedChangeListener { radioGroup, i ->
                 when (i) {
                     R.id.rdoMale -> {

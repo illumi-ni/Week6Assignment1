@@ -25,6 +25,8 @@ class HomeFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
+        homeViewModel =
+                ViewModelProvider(this).get(HomeViewModel::class.java)
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         recyclerViewUser = view.findViewById(R.id.recyclerViewUser)
 
