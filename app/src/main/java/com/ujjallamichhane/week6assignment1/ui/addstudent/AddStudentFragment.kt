@@ -1,10 +1,14 @@
 package com.ujjallamichhane.week6assignment1.ui.addstudent
 
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.*
+import android.widget.Button
+import android.widget.RadioButton
+import android.widget.RadioGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -12,6 +16,7 @@ import com.google.android.material.textfield.TextInputEditText
 import com.ujjallamichhane.week6assignment1.HomeActivity
 import com.ujjallamichhane.week6assignment1.R
 import com.ujjallamichhane.week6assignment1.model.Student
+
 
 class AddStudentFragment : Fragment() {
 
@@ -78,7 +83,13 @@ class AddStudentFragment : Fragment() {
 
                 val user = Student(fullName, age, gen, address, profileLink)
                 lstUser.add(user)
-                Toast.makeText(context, "added", Toast.LENGTH_SHORT).show()
+                Toast.makeText(context, "Student added", Toast.LENGTH_SHORT).show()
+
+                etFullname.setText("")
+                etAge.setText("")
+                radioGroupGender.clearCheck()
+                etAddress.setText("")
+                etProfileLink.setText("")
             }
         })
         return root

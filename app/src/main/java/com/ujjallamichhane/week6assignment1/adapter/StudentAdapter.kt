@@ -1,11 +1,13 @@
 package com.ujjallamichhane.week6assignment1.adapter
 
 import android.content.Context
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.ujjallamichhane.week6assignment1.R
@@ -55,6 +57,10 @@ class StudentAdapter (
             lstStudent.removeAt(position)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, lstStudent.size)
+        }
+
+        holder.imgProfile.setOnClickListener {
+            Toast.makeText(context, "Hello this is: ${user.fullName}", Toast.LENGTH_SHORT).show()
         }
     }
 
