@@ -9,10 +9,18 @@
     android:layout_margin="15dp"
     tools:context=".ui.addstudent.AddStudentFragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Student Details"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="32sp"/>
+
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="25dp"
         android:hint="Full name">
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etFullname"
