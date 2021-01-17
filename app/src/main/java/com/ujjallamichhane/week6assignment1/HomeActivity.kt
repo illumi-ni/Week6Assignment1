@@ -1,13 +1,13 @@
 package com.ujjallamichhane.week6assignment1
 
+import android.app.Activity
 import android.os.Bundle
-import android.view.View
-import android.view.Window
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ujjallamichhane.week6assignment1.model.Student
+import kotlin.system.exitProcess
 
 class HomeActivity : AppCompatActivity() {
     val lstUser = arrayListOf<Student>()

@@ -27,6 +27,7 @@ class MainActivity : AppCompatActivity() {
             if(userName == "softwarica" && password == "coventry") {
                 val intent = Intent(this, HomeActivity::class.java)
                 startActivity(intent)
+                finish()
             }
             else {
                 Toast.makeText(this, "Either username or password is incorrect", Toast.LENGTH_SHORT).show()
