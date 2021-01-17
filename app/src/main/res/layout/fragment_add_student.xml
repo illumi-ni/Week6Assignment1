@@ -113,8 +113,9 @@
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:textSize="18sp"
         android:layout_marginTop="5dp"
-        android:backgroundTint="#5d5ec4"
+        android:background="@drawable/round_button"
         android:text="Save" />
 
 </LinearLayout>
