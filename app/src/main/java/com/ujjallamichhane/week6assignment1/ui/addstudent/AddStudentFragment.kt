@@ -1,6 +1,7 @@
 package com.ujjallamichhane.week6assignment1.ui.addstudent
 
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
@@ -75,23 +76,59 @@ class AddStudentFragment : Fragment() {
             }
 
             btnSave.setOnClickListener {
-                val fullName = etFullname.text.toString()
-                val age = etAge.text.toString().toInt()
-                val gen = gender
-                val address = etAddress.text.toString()
-                val profileLink = etProfileLink.text.toString()
+                if (checkEmptyValues()) {
+                    if (radioGroupGender.checkedRadioButtonId == -1) {
+                        Toast.makeText(context, "Please select gender", Toast.LENGTH_SHORT).show()
+                    } else {
+                        val fullName = etFullname.text.toString()
+                        val age = etAge.text.toString().toInt()
+                        val gen = gender
+                        val address = etAddress.text.toString()
+                        val profileLink = etProfileLink.text.toString()
 
-                val user = Student(fullName, age, gen, address, profileLink)
-                lstUser.add(user)
-                Toast.makeText(context, "Student added", Toast.LENGTH_SHORT).show()
+                        val user = Student(fullName, age, gen, address, profileLink)
+                        lstUser.add(user)
+                        Toast.makeText(context, "Student added", Toast.LENGTH_SHORT).show()
 
-                etFullname.setText("")
-                etAge.setText("")
-                radioGroupGender.clearCheck()
-                etAddress.setText("")
-                etProfileLink.setText("")
+                        etFullname.setText("")
+                        etAge.setText("")
+                        radioGroupGender.clearCheck()
+                        etAddress.setText("")
+                        etProfileLink.setText("")
+                    }
+                }
             }
         })
         return root
+    }
+
+    private fun checkEmptyValues(): Boolean {
+        var flag = true
+        when {
+            TextUtils.isEmpty(etFullname.text) -> {
+                etFullname.error = "Please enter name"
+                etFullname.requestFocus()
+                flag = false
+            }
+
+            TextUtils.isEmpty(etAge.text) -> {
+                etAge.error = "Please enter age"
+                etAge.requestFocus()
+                flag = false
+            }
+
+            TextUtils.isEmpty(etAddress.text) -> {
+                etAddress.error = "Please enter address"
+                etAddress.requestFocus()
+                flag = false
+            }
+
+            TextUtils.isEmpty(etProfileLink.text) -> {
+                etProfileLink.error = "Please enter profile image link"
+                etProfileLink.requestFocus()
+                flag = false
+            }
+        }
+        return flag
     }
 }

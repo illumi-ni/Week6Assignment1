@@ -35,16 +35,4 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
-
-    private fun validate(): Boolean {
-        var flag = true
-        when {
-            TextUtils.isEmpty(etUserName.text) -> {
-                etUserName.error = "Username or password is incorrect"
-                etUserName.requestFocus()
-                flag = false
-            }
-        }
-        return flag
-    }
 }
