@@ -9,7 +9,6 @@ import android.view.ViewGroup
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import androidx.constraintlayout.widget.ConstraintLayout
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
@@ -26,17 +25,12 @@ class AboutUsFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        notificationsViewModel =
-                ViewModelProvider(this).get(AboutUsViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_about_us, container, false)
-//        val textView: TextView = root.findViewById(R.id.text_notifications)
 
         val webView: WebView = root.findViewById(R.id.webView)
         val layout: ConstraintLayout = root.findViewById(R.id.layout)
 
         notificationsViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-
             loadWebPage(root.context, layout, webView)
         })
         return root
@@ -49,27 +43,6 @@ class AboutUsFragment : Fragment() {
         return (network != null)
     }
 
-//    private fun loadWebPage(context: Context, layout: ConstraintLayout, webView: WebView) {
-//        if (isNetworkAvailable(context)) {
-//            val snackbar = Snackbar
-//                    .make(layout, "No Internet Connection", Snackbar.LENGTH_LONG)
-//                    .setAction("Reload") {
-//                        loadWebPage(context, layout, webView)
-//                    }
-//            snackbar.show()
-//        }
-//        else {
-//            val url = "https://softwarica.edu.np/"
-//            webView.loadUrl(url)
-//            webView.webViewClient = object : WebViewClient() {
-//                override fun shouldOverrideUrlLoading(view: WebView, url: String): Boolean {
-//                    view.loadUrl(url)
-//                    return true
-//                }
-//            }
-//        }
-//    }
-
     private fun loadWebPage(context: Context, layout: ConstraintLayout, webView: WebView) {
         if (isNetworkAvailable(context)) {
 
@@ -81,8 +54,7 @@ class AboutUsFragment : Fragment() {
                     return true
                 }
             }
-        }
-        else {
+        } else {
             val snackbar = Snackbar
                     .make(layout, "No Internet Connection", Snackbar.LENGTH_LONG)
                     .setAction("Reload") {

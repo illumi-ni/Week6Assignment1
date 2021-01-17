@@ -21,19 +21,14 @@ class HomeFragment : Fragment() {
     private var lstUser = arrayListOf<Student>()
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+            inflater: LayoutInflater,
+            container: ViewGroup?,
+            savedInstanceState: Bundle?
     ): View? {
-        homeViewModel =
-            ViewModelProvider(this).get(HomeViewModel::class.java)
         val view = inflater.inflate(R.layout.fragment_home, container, false)
         recyclerViewUser = view.findViewById(R.id.recyclerViewUser)
-//        val textView: TextView = root.findViewById(R.id.text_home)
 
         homeViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-
             lstUser = (activity as HomeActivity).lstUser
 
             val adapter = StudentAdapter(lstUser, view.context)

@@ -2,7 +2,6 @@ package com.ujjallamichhane.week6assignment1.ui.addstudent
 
 import android.os.Bundle
 import android.text.TextUtils
-import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -41,11 +40,7 @@ class AddStudentFragment : Fragment() {
             container: ViewGroup?,
             savedInstanceState: Bundle?
     ): View? {
-        dashboardViewModel =
-                ViewModelProvider(this).get(AddStudentViewModel::class.java)
         val root = inflater.inflate(R.layout.fragment_add_student, container, false)
-//        val textView: TextView = root.findViewById(R.id.text_dashboard)
-
         etFullname = root.findViewById(R.id.etFullname)
         etAge = root.findViewById(R.id.etAge)
         radioGroupGender = root.findViewById(R.id.radioGroupGender)
@@ -57,10 +52,7 @@ class AddStudentFragment : Fragment() {
         btnSave = root.findViewById(R.id.btnSave)
 
         dashboardViewModel.text.observe(viewLifecycleOwner, Observer {
-//            textView.text = it
-
             lstUser = (activity as HomeActivity).lstUser
-
             radioGroupGender.setOnCheckedChangeListener { radioGroup, i ->
                 when (i) {
                     R.id.rdoMale -> {

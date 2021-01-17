@@ -14,11 +14,11 @@ import com.ujjallamichhane.week6assignment1.R
 import com.ujjallamichhane.week6assignment1.model.Student
 import de.hdodenhof.circleimageview.CircleImageView
 
-class StudentAdapter (
+class StudentAdapter(
         val lstStudent: ArrayList<Student>,
         val context: Context,
-): RecyclerView.Adapter<StudentAdapter.UserViewHolder>() {
-    class UserViewHolder(view: View): RecyclerView.ViewHolder(view) {
+) : RecyclerView.Adapter<StudentAdapter.UserViewHolder>() {
+    class UserViewHolder(view: View) : RecyclerView.ViewHolder(view) {
 
         val imgProfile: CircleImageView
         val tvName: TextView
@@ -26,7 +26,8 @@ class StudentAdapter (
         val tvAddress: TextView
         val tvGender: TextView
         val btnDelete: ImageButton
-        init{
+
+        init {
             imgProfile = view.findViewById(R.id.imgProfile)
             tvName = view.findViewById(R.id.tvName)
             tvAge = view.findViewById(R.id.tvAge)
@@ -38,7 +39,7 @@ class StudentAdapter (
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): UserViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.card_view_student, parent,false)
+                .inflate(R.layout.card_view_student, parent, false)
         return UserViewHolder(view)
     }
 
@@ -50,8 +51,8 @@ class StudentAdapter (
         holder.tvGender.text = user.gender
 
         Glide.with(context)
-            .load(user.profileLink)
-            .into(holder.imgProfile)
+                .load(user.profileLink)
+                .into(holder.imgProfile)
 
         holder.btnDelete.setOnClickListener {
             lstStudent.removeAt(position)

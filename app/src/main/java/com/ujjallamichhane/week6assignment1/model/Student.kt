@@ -3,19 +3,19 @@ package com.ujjallamichhane.week6assignment1.model
 import android.os.Parcel
 import android.os.Parcelable
 
-data class Student (
-    val fullName: String? = null,
-    val age: Int? = null,
-    val gender: String? = null,
-    val address: String? = null,
-    val profileLink: String? = null,
-): Parcelable {
+data class Student(
+        val fullName: String? = null,
+        val age: Int? = null,
+        val gender: String? = null,
+        val address: String? = null,
+        val profileLink: String? = null,
+) : Parcelable {
     constructor(parcel: Parcel) : this(
-        parcel.readString(),
-        parcel.readValue(Int::class.java.classLoader) as? Int,
-        parcel.readString(),
-        parcel.readString(),
-        parcel.readString()
+            parcel.readString(),
+            parcel.readValue(Int::class.java.classLoader) as? Int,
+            parcel.readString(),
+            parcel.readString(),
+            parcel.readString()
     ) {
     }
 
@@ -40,5 +40,4 @@ data class Student (
             return arrayOfNulls(size)
         }
     }
-
 }

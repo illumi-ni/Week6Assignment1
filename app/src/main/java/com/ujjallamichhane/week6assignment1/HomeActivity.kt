@@ -1,13 +1,11 @@
 package com.ujjallamichhane.week6assignment1
 
-import android.app.Activity
 import android.os.Bundle
 import com.google.android.material.bottomnavigation.BottomNavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.setupWithNavController
 import com.ujjallamichhane.week6assignment1.model.Student
-import kotlin.system.exitProcess
 
 class HomeActivity : AppCompatActivity() {
     val lstUser = arrayListOf<Student>()
@@ -19,12 +17,6 @@ class HomeActivity : AppCompatActivity() {
         val navView: BottomNavigationView = findViewById(R.id.nav_view)
 
         val navController = findNavController(R.id.nav_host_fragment)
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-
-//        val appBarConfiguration = AppBarConfiguration(setOf(
-//                R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications))
-//        setupActionBarWithNavController(navController)
         navView.setupWithNavController(navController)
 
         loadUsers()
